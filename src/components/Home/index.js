@@ -3,7 +3,7 @@ import "./home.css";
 
 function Home() {
 
-  const URL = 'https://api.spotify.com/';
+  const URL = 'https://api.spotify.com/v1/users';
   //https://jsonplaceholder.typicode.com/users
 
   const [category, setCategory] = useState([]);

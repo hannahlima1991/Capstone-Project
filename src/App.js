@@ -11,6 +11,8 @@ import Dashboard from "./components/Dashboard";
 import CategoriesList from "./components/CategoriesList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+const userIsRegistered = true;
+
 function App() {
   return (
     <Router>

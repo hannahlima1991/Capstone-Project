@@ -29,12 +29,23 @@ function Home() {
     
     {
       category.map((cat, id) => {
+        console.log(category)
          return (<div>
-          {cat.name}
-          </div> 
+          <div class="card" style={{width: 18+'rem', height: 36+'rem'}}>
+  <img class="card-img-top" src={cat.icons[0].url} alt="Card image cap"/>
+  <div class="card-body">
+    <h5 class="card-title">{cat.name}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href={cat.href} class="btn btn-primary">Playlist</a>
+  </div>
+</div>
+</div>
+          
 
     )})
     }
+
+    
     
     </div> 
   )

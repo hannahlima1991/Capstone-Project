@@ -7,6 +7,13 @@ const Register = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    fetch("http://localhost:8000/registers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
   };
 
   return (
@@ -45,7 +52,7 @@ const Register = () => {
             ref={register({ required: true })}
           />
           {errors.email ? (
-            <p style={{ color: "black" }}>Email is invalid.</p>
+            <p style={{ color: "black" }}>Email is required/invalid.</p>
           ) : null}
         </div>
         <div className="textInput">

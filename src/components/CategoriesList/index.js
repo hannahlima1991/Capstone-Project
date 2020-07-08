@@ -3,13 +3,14 @@ import "./categoriesList.css";
 
 function CategoriesList() {
   
-  
+
   //https://jsonplaceholder.typicode.com/users
 
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
     let URL = window.location;
+
     let access_token = URL.hash.split('&')[0].split('=')[1];
     fetch('https://api.spotify.com/v1/browse/categories',
       {
@@ -20,13 +21,15 @@ function CategoriesList() {
       })
       .then((response) => response.json())
       .then((response) => setCategory(response.categories.items))
-      
+
 
 
   }, []);
 
   return (
+
     <div className="card-group">
+
       
 
       {

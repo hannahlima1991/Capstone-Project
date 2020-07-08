@@ -1,27 +1,28 @@
 import * as React from "react";
 import "./register.css";
-// import { useForm } from "react-hook-form";
-
-// const Register = () => {
-//   const { register, errors, handleSubmit, clearErrors } = useForm();
-
-//   const onSubmit = (data) => {
-//     console.log(data);
-//   };
+import { useForm } from "react-hook-form";
 
 const Register = () => {
+  const { register, errors, handleSubmit, clearErrors } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    // <form onSubmit={handleSubmit(onSubmit)}>
     <div className="wrapper">
-      <form className="resgistrationForm">
+      <form onSubmit={handleSubmit(onSubmit)} className="resgistrationForm">
         <div className="textInput">
           <input
             name="firstName"
             type="text"
             placeholder="Enter First Name"
             size="28"
-            // ref={register({ required: true })}
+            ref={register({ required: true })}
           />
+          {errors.firstName ? (
+            <p style={{ color: "black" }}>First name is required.</p>
+          ) : null}
         </div>
         <div className="textInput">
           <input
@@ -29,17 +30,23 @@ const Register = () => {
             type="text"
             placeholder="Enter Last Name"
             size="28"
-            // ref={register({ required: true })}
+            ref={register({ required: true })}
           />
+          {errors.lastName ? (
+            <p style={{ color: "black" }}>Last name is required.</p>
+          ) : null}
         </div>
         <div className="textInput">
           <input
-            name="userName"
+            name="email"
             type="text"
-            placeholder="Enter User Name"
+            placeholder="Enter email"
             size="28"
-            // ref={register({ required: true })}
+            ref={register({ required: true })}
           />
+          {errors.email ? (
+            <p style={{ color: "black" }}>Email is invalid.</p>
+          ) : null}
         </div>
         <div className="textInput">
           <input
@@ -47,8 +54,13 @@ const Register = () => {
             type="password"
             placeholder="Enter Password"
             size="28"
-            // ref={register({ required: true })}
+            ref={register({ required: true, minLength: 8 })}
           />
+          {errors.password ? (
+            <p style={{ color: "black" }}>
+              Password is invalid,minimun 8 characters.
+            </p>
+          ) : null}
         </div>
         {/* <button type="button" onClick={() => clearErrors("firstName")}>
           Clear First Name Errors

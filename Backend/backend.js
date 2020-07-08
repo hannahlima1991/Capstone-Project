@@ -23,19 +23,40 @@ app.post("/registers", async (req, res) => {
   let email = req.body.email;
   let password = await bcrypt.hash(req.body.password, 10);
 
-  let register = models.Register.build({
-    name: name,
-    last_name: lastName,
-    email: email,
-    password: password,
-  });
-
-  register.save().then((savedRegister) => {
-    res.json({ success: true });
+  //not sure placed here.//NotSure
+  models.Register.findOne({
+    where: {
+      email: email,
+    },
+  }).then((register) => {
+    if (register == null) {
+      let register = models.Register.build({
+        name: name,
+        last_name: lastName,
+        email: email,
+        password: password,
+      });
+      register.save().then((savedRegister) => {
+        res.json({ success: true });
+      });
+    } else {
+      res.send("Email is currently used");
+    }
   });
 });
 
-//create registration model with the name, lastName, email, password
+///NNOT Sure ^///
+
+//   let register = models.Register.build({
+//     name: name,
+//     last_name: lastName,
+//     email: email,
+//     password: password,
+//   });
+
+//   register.save().then((savedRegister) => {
+//     res.json({ success: true });
+//   });
 
 app.listen(8000, () => {
   console.log("Server running strong");

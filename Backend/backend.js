@@ -18,7 +18,8 @@ app.get("/registers", (req, res) => {
 });
 
 app.post("/registers", async (req, res) => {
-  let name = req.body.name;
+  console.log(req.body);
+  let name = req.body.firstName;
   let lastName = req.body.lastName;
   let email = req.body.email;
   let password = await bcrypt.hash(req.body.password, 10);

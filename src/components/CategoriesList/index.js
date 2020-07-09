@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import "./categoriesList.css";
 
+
+
+
 function CategoriesList() {
-  
-  
-  //https://jsonplaceholder.typicode.com/users
+
+
+
 
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
     let URL = window.location;
     let access_token = URL.hash.split('&')[0].split('=')[1];
-    fetch('https://api.spotify.com/v1/browse/categories',
+    fetch('https://api.spotify.com/v1/browse/categories/party',
       {
         headers: {
           'Authorization': 'Bearer ' + access_token
@@ -19,21 +22,41 @@ function CategoriesList() {
         method: 'GET'
       })
       .then((response) => response.json())
-      .then((response) => setCategory(response.categories.items))
-      
+      .then((response) => console.log(response))
+}, []);
 
 
-  }, []);
 
-  return (
-    <div>
+
+function handleClick() {
+  console.log("clicked")
+}
+
+
+return (
+  <div>
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-secondary">Left</button>
-      <button type="button" class="btn btn-secondary">Middle</button>
-      <button type="button" class="btn btn-secondary">Right</button>
+      <button
+        onClick={handleClick}
+        type="button"
+        class="btn btn-secondary">
+        Hardstyle
+        </button>
+      <button
+        onClick={handleClick}
+        type="button"
+        class="btn btn-secondary">
+        Trance
+        </button>
+      <button
+        onClick={handleClick}
+        type="button"
+        class="btn btn-secondary">
+        House
+        </button>
     </div>
     <div className="card-group">
-      
+
 
       {
         category.map((cat, id) => {
@@ -57,8 +80,8 @@ function CategoriesList() {
 
 
     </div>
-    </div>
-  )
-};
+  </div>
+)}
+;
 
 export default CategoriesList;

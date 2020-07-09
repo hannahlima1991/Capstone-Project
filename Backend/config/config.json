@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": null,
-    "database": "spotifydb",
-    "host": "127.0.0.1",
+    "username": "svxhvore",
+    "password": "yQ_KdsyTdSOSMa_RQFmjyPSXbsULZtlB",
+    "database": "svxhvore",
+    "host": "ruby.db.elephantsql.com",
     "dialect": "postgres",
     "operatorsAliases": false
   },

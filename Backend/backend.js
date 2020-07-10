@@ -4,13 +4,16 @@ const models = require("./models");
 const cors = require("cors");
 const session = require("express-session");
 const loginRoute = require("./routes/login");
+const profileRoute = require("./routes/profile");
 const bcrypt = require("bcryptjs");
+const authenticate = require("./middleware/authenticate");
 
 app.use(cors());
 app.use(express.json());
 
 //Route for login
 app.use("/login", loginRoute);
+app.use("/profile", authenticate, profileRoute);
 
 //getting the registrations
 app.get("/registers", (req, res) => {

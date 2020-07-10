@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const { register, errors, handleSubmit, clearErrors } = useForm();
@@ -47,12 +48,14 @@ const Login = () => {
           ) : null}
         </div>
         <div className="loginButton">
-          <button
-            type="submit"
-            class="btn btn-outline-success btn-lg btn-block"
-          >
-            Login
-          </button>
+          <Link to="/dashboard">
+            <button
+              type="submit"
+              class="btn btn-outline-success btn-lg btn-block"
+            >
+              Login
+            </button>
+          </Link>
         </div>
       </form>
     </div>

@@ -18,7 +18,6 @@ function DashBoard(props) {
   return (
     <div className="App">
       <h1>Dashboard</h1>
-      <p>{props.match.params.id}</p>
     </div>
   );
 }

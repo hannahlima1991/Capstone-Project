@@ -1,6 +1,7 @@
 import * as React from "react";
 import "./register.css";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { register, errors, handleSubmit, clearErrors } = useForm();
@@ -69,7 +70,24 @@ const Register = () => {
             </p>
           ) : null}
         </div>
-        {/* <button type="button" onClick={() => clearErrors("firstName")}>
+        <div className="submitButton">
+          <Link to="/login">
+            <button
+              type="submit"
+              class="btn btn-outline-success btn-lg btn-block"
+            >
+              Register
+            </button>
+          </Link>
+        </div>
+      </form>
+    </div>
+  );
+};
+export default Register;
+
+{
+  /* <button type="button" onClick={() => clearErrors("firstName")}>
           Clear First Name Errors
         </button>
         <button
@@ -80,17 +98,5 @@ const Register = () => {
         </button>
         <button type="button" onClick={() => clearErrors()}>
           Clear All Errors
-        </button> */}
-        <div className="submitButton">
-          <button
-            type="submit"
-            class="btn btn-outline-success btn-lg btn-block"
-          >
-            Register
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
-export default Register;
+        </button> */
+}

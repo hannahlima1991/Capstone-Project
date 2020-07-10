@@ -13,7 +13,11 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    });
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        localStorage.setItem("token", response.token);
+      });
   };
   return (
     <div className="login">

@@ -3,11 +3,10 @@ import "./login.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
   const { register, errors, handleSubmit, clearErrors } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     fetch("http://localhost:8000/login", {
       method: "POST",
       headers: {
@@ -17,7 +16,14 @@ const Login = () => {
     })
       .then((response) => response.json())
       .then((response) => {
-        localStorage.setItem("token", response.token);
+        if (response.status) {
+          localStorage.setItem("token", response.token);
+          localStorage.setItem("name", response.user.name);
+          console.log(response);
+          props.history.push("/dashboard");
+        } else {
+          props.history.push("/login");
+        }
       });
   };
   return (
@@ -48,14 +54,12 @@ const Login = () => {
           ) : null}
         </div>
         <div className="loginButton">
-          <Link to="/dashboard">
-            <button
-              type="submit"
-              class="btn btn-outline-success btn-lg btn-block"
-            >
-              Login
-            </button>
-          </Link>
+          <button
+            type="submit"
+            class="btn btn-outline-success btn-lg btn-block"
+          >
+            Login
+          </button>
         </div>
       </form>
     </div>

@@ -5,8 +5,11 @@ function CategoriesList() {
   //https://jsonplaceholder.typicode.com/users
 
   const [category, setCategory] = useState([]);
+  const [selectedOwnPlaylist, setSelectedOwnPlaylist] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState([])
 
   useEffect(() => {
+    getPlaylists()
     let URL = window.location;
 
     let access_token = URL.hash.split("&")[0].split("=")[1];
@@ -19,11 +22,79 @@ function CategoriesList() {
       .then((response) => response.json())
       .then((response) => setCategory(response.categories.items));
   }, []);
+    
 
-  return (
+  function getPlaylists() {
+
+    let URL = window.location;
+
+    let access_token = URL.hash.split("&")[0].split("=")[1];
+  fetch('https://api.spotify.com/v1/me/playlists', {
+    headers: {
+      Authorization: "Bearer " + access_token,
+    },
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((response) => setSelectedOwnPlaylist(response.items))
+    //.then((response) => console.log(response))
+    //.then(() => console.log(selectedCategory + access_token))
+    
+  }
+
+  function goToPlaylist(e) {
+
+    let URL = window.location;
+
+    let access_token = URL.hash.split("&")[0].split("=")[1]
+
+    fetch(e.target.value, {
+    headers: {
+      Authorization: "Bearer " + access_token,
+    },
+    method: "GET",
+  })
+    .then((response) => response.json())
+    .then((response) => setSelectedCategory([response.tracks.items[0].track.artists[0].name, response.tracks.items[0].track.name,response.tracks.items[0].track.album.images[0].url]) 
+    
+    )}
+
+  return (<div>
+    {selectedOwnPlaylist.map((item) => {
+      return (<button type="button" class="btn btn-primary" onClick={goToPlaylist} value={item.href} name={item.name}>{item.name}</button>)
+    })}
+    {/* <button type="button" class="btn btn-primary" onClick={handleClick} name="Hardstyle">Hardstyle</button>
+    <button type="button" class="btn btn-secondary" onClick={handleClick} name="House">House</button>
+    <button type="button" class="btn btn-success" onClick={handleClick} name="Trance">Trance</button> */}
+    <div>
+    {console.log(selectedCategory)}
+      <h1>{selectedCategory != [] ? selectedCategory.map((cat) => {
+        return (
+          <div>
+            <div class="card" style={{ width: 18 + "rem", height: 36 + "rem" }}>
+              <img
+                class="card-img-top"
+                //src={cat.response.tracks.items[0].track.album.images[0].url}
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{cat.name}</h5>
+                <p class="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href={cat.href} class="btn btn-primary" >
+                  Playlist
+                </a>
+              </div>
+            </div>
+          </div>
+        );
+      }): null}</h1>
+    </div>
+
     <div className="card-group">
       {category.map((cat, id) => {
-        console.log(category);
         return (
           <div>
             <div class="card" style={{ width: 18 + "rem", height: 36 + "rem" }}>
@@ -38,7 +109,7 @@ function CategoriesList() {
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href={cat.href} class="btn btn-primary">
+                <a href={cat.href} class="btn btn-primary" >
                   Playlist
                 </a>
               </div>
@@ -46,6 +117,7 @@ function CategoriesList() {
           </div>
         );
       })}
+    </div>
     </div>
   );
 }

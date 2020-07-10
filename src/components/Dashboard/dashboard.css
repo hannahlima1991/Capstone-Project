@@ -1,0 +1,21 @@
+.welcomeUser h1 {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 15px;
+  float: left;
+  color: #566467;
+}
+.welcomeUser hr {
+  width: 98%;
+}
+.playlist {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 15px;
+  float: left;
+  color: #566467;
+}
+.dashboardList {
+  font-family: "Source Sans Pro", sans-serif;
+  margin-left: 15px;
+  float: left;
+  color: #566467;
+}

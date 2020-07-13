@@ -2,15 +2,17 @@ const express = require("express");
 const app = express();
 const models = require("./models");
 const cors = require("cors");
-const session = require("express-session");
 const loginRoute = require("./routes/login");
+const dashboardRoute = require("./routes/dashboard");
 const bcrypt = require("bcryptjs");
+const authenticate = require("./middleware/authenticate");
 
 app.use(cors());
 app.use(express.json());
 
 //Route for login
 app.use("/login", loginRoute);
+app.use("/dashboard", authenticate, dashboardRoute);
 
 //getting the registrations
 app.get("/registers", (req, res) => {
@@ -18,7 +20,8 @@ app.get("/registers", (req, res) => {
 });
 
 app.post("/registers", async (req, res) => {
-  let name = req.body.name;
+  console.log(req.body);
+  let name = req.body.firstName;
   let lastName = req.body.lastName;
   let email = req.body.email;
   let password = await bcrypt.hash(req.body.password, 10);

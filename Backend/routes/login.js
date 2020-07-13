@@ -2,23 +2,25 @@ const express = require("express");
 const router = express.Router();
 const models = require("../models");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 router.post("/", (req, res) => {
-  let name = req.body.name;
+  let email = req.body.email;
   let password = req.body.password;
 
   models.Register.findOne({
     where: {
-      name: name,
+      email: email,
     },
   }).then((register) => {
     if (register == null) {
-      res.send("not registered");
+      res.send({ message: "not registered" });
     } else {
       if (bcrypt.compareSync(password, register.password)) {
-        res.send("status authenticated");
+        const token = jwt.sign({ userId: register.id }, "secretkey");
+        res.send({ token: token });
       } else {
-        res.send("Password is incorrect");
+        res.send({ message: "Password is incorrect" });
       }
     }
   });

@@ -14,7 +14,29 @@ function CategoriesList() {
   useEffect(() => {
     let URL = window.location;
     let access_token = URL.hash.split('&')[0].split('=')[1];
-    fetch('https://api.spotify.com/v1/browse/categories/party',
+    fetch('https://api.spotify.com/v1/browse/categories',
+      {
+        headers: {
+          'Authorization': 'Bearer ' + access_token
+        },
+        method: 'GET'
+      })
+      .then((response) => response.json())
+      .then((response) => setCategory(response.categories.items))
+}, []);
+
+
+
+
+function handleClick(event) {
+  const {Hardstyle, Trance, House} = event.target;
+
+  console.log(event.target.name)
+    let selectedCategory = event.target.name;
+
+    let URL = window.location;
+    let access_token = URL.hash.split('&')[0].split('=')[1];
+    fetch('https://api.spotify.com/v1/browse/categories/' + {selectedCategory},
       {
         headers: {
           'Authorization': 'Bearer ' + access_token
@@ -23,13 +45,8 @@ function CategoriesList() {
       })
       .then((response) => response.json())
       .then((response) => console.log(response))
-}, []);
+, [];
 
-
-
-
-function handleClick() {
-  console.log("clicked")
 }
 
 
@@ -38,18 +55,21 @@ return (
     <div class="btn-group" role="group" aria-label="Basic example">
       <button
         onClick={handleClick}
+        name = "Hardstyle"
         type="button"
         class="btn btn-secondary">
         Hardstyle
         </button>
       <button
         onClick={handleClick}
+        name = "Trance"
         type="button"
         class="btn btn-secondary">
         Trance
         </button>
       <button
         onClick={handleClick}
+        name = "House"
         type="button"
         class="btn btn-secondary">
         House

@@ -1,9 +1,10 @@
 .login {
-  background-image: url("https://ak.picdn.net/shutterstock/videos/496588/thumb/1.jpg ");
+  background-image: url("https://ak.picdn.net/shutterstock/videos/496588/thumb/1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
+  /* https://ak.picdn.net/shutterstock/videos/496588/thumb/1.jpg  */
 }
 .loginForm {
   border-radius: 18px;

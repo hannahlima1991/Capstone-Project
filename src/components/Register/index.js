@@ -2,7 +2,6 @@ import * as React from "react";
 import "./register.css";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import Footer from "../Footer";
 
 const Register = () => {
   const { register, errors, handleSubmit, clearErrors } = useForm();

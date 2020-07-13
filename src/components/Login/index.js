@@ -28,8 +28,8 @@ const Login = (props) => {
   };
   return (
     <div className="login">
-      <form onSubmit={handleSubmit(onSubmit)} className="form">
-        <div className="email">
+      <form onSubmit={handleSubmit(onSubmit)} className="loginForm">
+        <div className="loginTextInput">
           <input
             name="email"
             type="text"
@@ -41,7 +41,7 @@ const Login = (props) => {
             <p style={{ color: "black" }}>Email is required.</p>
           ) : null}
         </div>
-        <div className="password">
+        <div className="loginTextInput">
           <input
             name="password"
             type="password"

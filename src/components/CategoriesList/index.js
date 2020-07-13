@@ -58,20 +58,30 @@ function CategoriesList() {
     method: "GET",
   })
     .then((response) => response.json())
-    .then((response) => setSelectedCategory([response.tracks.items[0].track.artists[0].name, response.tracks.items[0].track.name,response.tracks.items[0].track.album.images[0].url]) 
+    .then((response) => setSelectedCategory(
+      [
+        response.tracks.items[0].track.artists[0].name, 
+        response.tracks.items[0].track.name,
+        response.tracks.items[0].track.album.images[0].url,
+        response
+      ]) 
     
     )}
 
   return (<div>
     {selectedOwnPlaylist.map((item) => {
-      return (<button type="button" class="btn btn-primary" onClick={goToPlaylist} value={item.href} name={item.name}>{item.name}</button>)
+      return (<button type="button" class="btn btn-primary" 
+                onClick={goToPlaylist} 
+                value={item.href} 
+                name={item.name}>
+                {item.name}
+                </button>)
     })}
-    {/* <button type="button" class="btn btn-primary" onClick={handleClick} name="Hardstyle">Hardstyle</button>
-    <button type="button" class="btn btn-secondary" onClick={handleClick} name="House">House</button>
-    <button type="button" class="btn btn-success" onClick={handleClick} name="Trance">Trance</button> */}
     <div>
     {console.log(selectedCategory)}
-      <h1>{selectedCategory != [] ? selectedCategory.map((cat) => {
+      <h1>{selectedCategory !== [] 
+        ? 
+        selectedCategory.map((cat) => {
         return (
           <div>
             <div class="card" style={{ width: 18 + "rem", height: 36 + "rem" }}>
@@ -93,7 +103,9 @@ function CategoriesList() {
             </div>
           </div>
         );
-      }): null}</h1>
+      })
+      : 
+      null}</h1>
     </div>
 
     <div className="card-group">

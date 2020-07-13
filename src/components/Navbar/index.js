@@ -22,13 +22,13 @@ function Navbar() {
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <Link to="/">
+            {/* <Link to="/">
               <li class="nav-item active">
                 <p class="nav-link" href="#">
                   Home <span class="sr-only">(current)</span>
                 </p>
               </li>
-            </Link>
+            </Link> */}
             <Link to="/register">
               <li class="nav-item">
                 <p class="nav-link" href="#">
@@ -51,7 +51,7 @@ function Navbar() {
               </p>
 
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <Link to="/login">
+                <Link to="/">
                   <p class="dropdown-item" href="#">
                     Login
                   </p>

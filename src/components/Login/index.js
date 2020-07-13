@@ -20,7 +20,7 @@ const Login = (props) => {
           localStorage.setItem("token", response.token);
           localStorage.setItem("name", response.user.name);
           console.log(response);
-          props.history.push("/dashboard");
+          props.history.push("/access");
         } else {
           props.history.push("/login");
         }

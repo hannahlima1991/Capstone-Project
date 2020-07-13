@@ -5,7 +5,7 @@ import Profile from "./components/Profile";
 import Navbar from "./components/Navbar";
 import MusicPlayer from "./components/MusicPlayer";
 import Login from "./components/Login";
-import Home from "./components/Home";
+import Access from "./components/Access";
 import Error from "./components/Error";
 import Dashboard from "./components/Dashboard";
 import CategoriesList from "./components/CategoriesList";
@@ -17,11 +17,11 @@ function App() {
       <div className="App">
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={Login} />
           <Route path="/categories" component={CategoriesList} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/error" component={Error} />
-          <Route path="/login" component={Login} />
+          <Route path="/access" component={Access} />
           <Route path="/musicplayer" component={MusicPlayer} />
           <Route path="/profile" component={Profile} />
           <Route path="/register" component={Register} />

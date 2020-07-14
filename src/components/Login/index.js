@@ -22,7 +22,7 @@ const Login = (props) => {
           console.log(response);
           props.history.push("/access");
         } else {
-          props.history.push("/login");
+          props.history.push("/register");
         }
       });
   };

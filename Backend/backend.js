@@ -26,26 +26,41 @@ app.post("/registers", async (req, res) => {
   let email = req.body.email;
   let password = await bcrypt.hash(req.body.password, 10);
 
-  //not sure placed here.//NotSure
-  models.Register.findOne({
-    where: {
-      email: email,
-    },
-  }).then((register) => {
-    if (register == null) {
-      let register = models.Register.build({
-        name: name,
-        last_name: lastName,
-        email: email,
-        password: password,
-      });
-      register.save().then((savedRegister) => {
-        res.json({ success: true });
-      });
-    } else {
-      res.send("Email is currently used");
-    }
+  let register = models.Register.build({
+    name: name,
+    last_name: lastName,
+    email: email,
+    password: password,
   });
+  register
+    .save()
+    .then((response) => {
+      console.log(response);
+      res.send(response);
+    })
+    .catch((error) => {
+      res.send(error);
+    });
+  //not sure placed here.//NotSure
+  // models.Register.findOne({
+  //   where: {
+  //     email: email,
+  //   },
+  // }).then((register) => {
+  //   if (register == null) {
+  //     let register = models.Register.build({
+  //       name: name,
+  //       last_name: lastName,
+  //       email: email,
+  //       password: password,
+  //     });
+  //     register.save().then((savedRegister) => {
+  //       res.json({ success: true });
+  //     });
+  //   } else {
+  //     res.send("Email is currently used");
+  //   }
+  // });
 });
 
 ///NNOT Sure ^///

@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   justify-content: center;
-  background-image: url("https://uploads.scratch.mit.edu/users/avatars/17171148.png");
+  background-image: url("https://bgwall.net/wp-content/uploads/2014/09/abstract-music-picture-wallpaper-hd.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -9,13 +9,14 @@
 }
 .resgistrationForm {
   border-radius: 18px;
-  margin-top: 140px;
+  /* margin-top: 140px; */
   border: 3px solid #f2f2f2;
   padding: 20px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 2px 3px 0px rgba(0, 0, 0, 0.12);
   height: 387px;
-  background-color: rgba(252, 252, 252, 0.2);
+  position: absolute;
+  top: 50%;
 }
 .textInput {
   border: 1px solid rgba(252, 252, 252, 0.4);
@@ -44,3 +45,5 @@
 }
 
 /* https://cdn2.vectorstock.com/i/1000x1000/48/46/abstract-musical-background-with-notes-vector-1664846.jpg */
+
+/* https://bgwall.net/wp-content/uploads/2014/09/abstract-music-picture-wallpaper-hd.jpeg headphones */

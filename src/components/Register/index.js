@@ -71,7 +71,7 @@ const Register = () => {
           ) : null}
         </div>
         <div className="submitButton">
-          <Link to="/login">
+          <Link to="/">
             <button
               type="submit"
               class="btn btn-outline-success btn-lg btn-block"

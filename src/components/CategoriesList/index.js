@@ -32,7 +32,7 @@ function CategoriesList() {
     let URL = window.location;
 
     let access_token = URL.hash.split("&")[0].split("=")[1];
-  fetch('https://api.spotify.com/v1/me/playlists', {
+  fetch('https://api.spotify.com/v1/me/playlists/', {
     headers: {
       Authorization: "Bearer " + access_token,
     },
@@ -60,9 +60,6 @@ function CategoriesList() {
     .then((response) => response.json())
     .then((response) => setSelectedCategory(
       [
-        response.tracks.items[0].track.artists[0].name, 
-        response.tracks.items[0].track.name,
-        response.tracks.items[0].track.album.images[0].url,
         response
       ]) 
     
@@ -91,7 +88,7 @@ function CategoriesList() {
                 alt="Card image cap"
               />
               <div class="card-body">
-                <h5 class="card-title">{cat.name}</h5>
+                <h5 class="card-title">{cat[0]}</h5>
                 <p class="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.

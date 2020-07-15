@@ -8,11 +8,13 @@ function CategoriesList() {
   const [selectedOwnPlaylist, setSelectedOwnPlaylist] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
 
+  let URL = window.location;
+
+  let access_token = URL.hash.split("&")[0].split("=")[1];
+
   useEffect(() => {
     getPlaylists();
-    let URL = window.location;
 
-    let access_token = URL.hash.split("&")[0].split("=")[1];
     fetch("https://api.spotify.com/v1/browse/categories", {
       headers: {
         Authorization: "Bearer " + access_token,
@@ -122,56 +124,9 @@ function CategoriesList() {
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </p>
-                  <div
-                    onClick={() => {
-                      let URL = window.location;
-
-                      let access_token = URL.hash.split("&")[0].split("=")[1];
-                      fetch(
-                        `https://api.spotify.com/v1/browse/categories/${cat.id}/playlists`,
-                        {
-                          headers: {
-                            Authorization: "Bearer " + access_token,
-                          },
-                          method: "GET",
-                        }
-                      )
-                        .then((response) => response.json())
-                        .then((response) =>
-                          console.log("list of playlists by category", response)
-                        );
-                    }}
-                    class="btn btn-primary"
-                  >
-                    Get list of Playlists by Category
-                  </div>
-                  <div
-                    class="btn btn-danger"
-                    onClick={() => {
-                      let URL = window.location;
-
-                      let access_token = URL.hash.split("&")[0].split("=")[1];
-                      fetch(
-                        "https://api.spotify.com/v1/playlists/37i9dQZF1DXcF6B6QPhFDv/tracks",
-                        {
-                          headers: {
-                            Authorization: "Bearer " + access_token,
-                          },
-                          method: "GET",
-                        }
-                      )
-                        .then((response) => response.json())
-                        .then((response) =>
-                          console.log(
-                            "hardcoded get of list of songs by a hardcoded playlist",
-                            response
-                          )
-                        );
-                    }}
-                  >
-                    {" "}
-                    Check list of songs in a PlayList
-                  </div>
+                  <a href={cat.href} class="btn btn-primary">
+                    Playlist
+                  </a>
                 </div>
               </div>
             </div>

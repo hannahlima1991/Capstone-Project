@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
-    <div className="App">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="Nav">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light navHeight">
         <p class="navbar-brand" href="#">
           Spotibae
         </p>

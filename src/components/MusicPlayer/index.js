@@ -5,7 +5,7 @@ import "../CategoriesList";
 import "../ListOfPlayLists";
 import MusicVideoIcon from '@material-ui/icons/MusicVideo';
 import LoyaltyIcon from '@material-ui/icons/Loyalty';
-import CodeIcon from '@material-ui/icons/Code';
+import './mysass.scss';
 
 function MusicPlayer() {
   const [selectedSong, setSelectedSong] = useState("");
@@ -19,6 +19,7 @@ function MusicPlayer() {
   // }
 
   return (
+    
       <div class="jumbotron">
       <div className="header">
       <h1 className = "title animate-reveal animate-first display-4">
@@ -35,8 +36,25 @@ function MusicPlayer() {
       allowtransparency="true" 
       allow="encrypted-media">
       </iframe>
+      <hr class="my-4" />
+      <div class="content">
+  <div className="content__container">
+    <p className="content__container__text">
+      by
+    </p>
+    
+    <ul className="content__container__list">
+      <li className="content__container__list__item">Hannah !</li>
+      <li className="content__container__list__item">Steve !</li>
+      <li className="content__container__list__item">Django !</li>
+      <li className="content__container__list__item">DigitalCrafts !</li>
+    </ul>
   </div>
- </div>
+</div>
+      
+      
+  </div>
+</div>
   
   )}
 

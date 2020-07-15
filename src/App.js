@@ -21,7 +21,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Login} />
-          <Route path="/categories" component={CategoriesList} />
+          <Route path="/categories" exact component={CategoriesList} />
           {/* <Route path="/categories/list/:id" component={CategoriesList} /> */}
           {/* Make a route for handling a list of songs... make a component for receiving a list of songs... that component will look to the url for categoryId... */}
           <Route path="/categories/list/:id" component={ListOfPlayLists} />

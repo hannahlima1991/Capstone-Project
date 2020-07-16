@@ -29,7 +29,7 @@ function App() {
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/error" component={Error} />
           <Route path="/access" component={Access} />
-          <Route path="/musicplayer" component={MusicPlayer} />
+          <Route path="/musicplayer/:id" component={MusicPlayer} />
           <Route path="/profile" component={Profile} />
           <Route path="/register" component={Register} />
         </Switch>

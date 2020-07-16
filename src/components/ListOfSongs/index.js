@@ -41,7 +41,14 @@ function ListOfSongs(props) {
               <div className="card">
                 <div className="card-body lg-12">
                   {name}
-                  <button>push</button>
+                  <button
+                    onClick={() => {
+                      props.history.push(`/musicplayer/${song.track.id}`);
+                      console.log(song.track.id);
+                    }}
+                  >
+                    push
+                  </button>
                 </div>
               </div>
 

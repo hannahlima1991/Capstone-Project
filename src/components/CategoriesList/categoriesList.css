@@ -1,0 +1,25 @@
+.cardMargin {
+  margin: 30px 10px;
+  border-radius: 0;
+  box-shadow: 5px 5px 15px #1b936f;
+  transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  /* min-height: 451px;
+  max-height: 451px; */
+  margin: 60px 0px;
+  color: #566467;
+}
+.cardMargin:hover {
+  background: #53b788;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 5px 5px 10px #9e9e9e;
+}
+.categoryName {
+  text-align: center;
+}
+.card-title {
+  font-family: "Source Sans Pro", sans-serif;
+}

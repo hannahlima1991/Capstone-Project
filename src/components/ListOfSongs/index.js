@@ -30,12 +30,17 @@ function ListOfSongs(props) {
   return (
     <div className="songsList">
       <h1>Hello</h1>
-      <div className="card">
-        {songList.map((song) => {
-          const { track } = song;
-          const { name = "" } = track;
-          const { duration_ms } = track;
-
+      {songList.map((song) => {
+        const { track } = song;
+        const { name = "" } = track;
+        const { duration_ms } = track;
+        return (
+          
+          <div className="SongUI">
+            <div className="card cardSize">
+              <div className="card-body lg-6 ">
+                {name}
+                <button>push</button>
           return (
             <div className="SongUI">
               <div className="card">
@@ -51,12 +56,12 @@ function ListOfSongs(props) {
                   </button>
                 </div>
               </div>
-
-              {/* <p>{duration_ms}</p>; */}
             </div>
-          );
-        })}
-      </div>
+
+            {/* <p>{duration_ms}</p>; */}
+          </div>
+        );
+      })}
     </div>
   );
 }

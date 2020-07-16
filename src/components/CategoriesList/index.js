@@ -8,11 +8,13 @@ function CategoriesList(props) {
   const [selectedOwnPlaylist, setSelectedOwnPlaylist] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
 
+  let URL = window.location;
+
+  let access_token = URL.hash.split("&")[0].split("=")[1];
+
   useEffect(() => {
     getPlaylists();
-    let URL = window.location;
 
-    let access_token = URL.hash.split("&")[0].split("=")[1];
     fetch("https://api.spotify.com/v1/browse/categories", {
       headers: {
         Authorization: "Bearer " + access_token,

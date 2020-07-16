@@ -52,7 +52,9 @@ function ListOfPlayLists(props) {
                   </p>
                   <button
                     class="btn btn-primary"
-                    // onClick={getPlayLists(list.id)}
+                    onClick={() => {
+                      props.history.push(`/songs/list/${list.id}`);
+                    }}
                   >
                     Get list of Playlists by Category
                   </button>

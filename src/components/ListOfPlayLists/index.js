@@ -29,35 +29,24 @@ function ListOfPlayLists(props) {
   };
 
   return (
-    <div className="listOfPlayLists">
-      <h1>Yo!</h1>
-      <div className="card-group">
+    <div>
+      <div className="card-group cardPosition">
         {playList.map((list, id) => {
           return (
-            <div>
-              <div
-                class="card"
-                style={{ width: 18 + "rem", height: 36 + "rem" }}
-              >
+            <div
+              class="col-lg-3 margin"
+              onClick={() => {
+                props.history.push(`/songs/list/${list.id}`);
+              }}
+            >
+              <div class="card cardMargin">
                 <img
                   class="card-img-top"
                   src={list.images[0].url}
                   alt="Card image cap"
                 />
-                <div class="card-body">
+                <div class="card-body categoryName">
                   <h5 class="card-title">{list.name}</h5>
-                  <p class="card-text">
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
-                  </p>
-                  <button
-                    class="btn btn-primary"
-                    onClick={() => {
-                      props.history.push(`/songs/list/${list.id}`);
-                    }}
-                  >
-                    Get list of Playlists by Category
-                  </button>
                 </div>
               </div>
             </div>

@@ -1,0 +1,11 @@
+.cardSize {
+  margin-left: 15px;
+  width: 98%;
+  margin-top: 10px;
+}
+.card-body {
+  margin-top: 10px;
+}
+.songList h1 {
+  background-color: white;
+}

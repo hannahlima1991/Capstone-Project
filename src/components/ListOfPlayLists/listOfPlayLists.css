@@ -1,0 +1,10 @@
+.margin {
+  margin: 30px 10px;
+}
+.cardPosition {
+  position: relative;
+  left: 10%;
+}
+.card-title {
+  font-family: "Source Sans Pro", sans-serif;
+}

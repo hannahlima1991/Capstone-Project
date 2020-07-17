@@ -29,20 +29,6 @@ function Navbar() {
                 </p>
               </li>
             </Link>
-            <Link to="/categories/list">
-              <li class="nav-item active">
-                <p class="nav-link" href="#">
-                  Choose a Playlist
-                </p>
-              </li>
-            </Link>
-            {/* <Link to="/songs/list">
-              <li class="nav-item">
-                <p class="nav-link" href="#">
-                  Choose a Song
-                </p>
-              </li>
-            </Link> */}
           </ul>
         </div>
       </nav>

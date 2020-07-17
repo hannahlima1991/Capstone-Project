@@ -18,7 +18,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Navbar /> */}
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/categories" exact component={CategoriesList} />

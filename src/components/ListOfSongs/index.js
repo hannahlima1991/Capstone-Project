@@ -7,6 +7,10 @@ let URL = window.location;
 let access_token = URL.hash.split("&")[0].split("=")[1];
 
 function ListOfSongs(props) {
+  localStorage.setItem(access_token, "Tom");
+  var aT = localStorage.getItem(access_token);
+  console.log(aT);
+
   const [songList, setSongList] = useState([]);
   useEffect(() => {
     console.log(props.match.params.id);

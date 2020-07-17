@@ -35,30 +35,29 @@ function ListOfSongs(props) {
         const { name = "" } = track;
         const { duration_ms } = track;
         return (
-          
           <div className="SongUI">
             <div className="card cardSize">
               <div className="card-body lg-6 ">
                 {name}
                 <button>push</button>
-          return (
-            <div className="SongUI">
-              <div className="card">
-                <div className="card-body lg-12">
-                  {name}
-                  <button
-                    onClick={() => {
-                      props.history.push(`/musicplayer/${song.track.id}`);
-                      console.log(song.track.id);
-                    }}
-                  >
-                    push
-                  </button>
+                return (
+                <div className="SongUI">
+                  <div className="card">
+                    <div className="card-body lg-12">
+                      {name}
+                      <button
+                        onClick={() => {
+                          props.history.push(`/musicplayer/${song.track.id}`);
+                          console.log(song.track.id);
+                        }}
+                      >
+                        push
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            {/* <p>{duration_ms}</p>; */}
           </div>
         );
       })}
@@ -66,7 +65,3 @@ function ListOfSongs(props) {
   );
 }
 export default ListOfSongs;
-
-/* <h1>
-        "https://api.spotify.com/v1/playlists/37i9dQZF1DXcF6B6QPhFDv/tracks",
-      </h1> */

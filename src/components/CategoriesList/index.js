@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./categoriesList.css";
+import Navbar from "../Navbar";
 
 function CategoriesList(props) {
   //https://jsonplaceholder.typicode.com/users
@@ -57,7 +58,8 @@ function CategoriesList(props) {
   }
 
   return (
-    <div>
+    <div className="fullContent">
+      <Navbar />
       <div className="card-group cardStyle">
         {category.map((cat, id) => {
           return (

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./listOfSongs.css";
-import ListOfPlayLists from "../ListOfPlayLists";
-import CategoriesList from "../CategoriesList";
+import Navbar from "../Navbar";
 
 let URL = window.location;
 let access_token = URL.hash.split("&")[0].split("=")[1];
@@ -29,7 +28,7 @@ function ListOfSongs(props) {
   };
   return (
     <div className="songsList">
-      <h1>Hello</h1>
+      <Navbar />
       {songList.map((song) => {
         const { track } = song;
         const { name = "" } = track;

@@ -1,6 +1,7 @@
 import React from "react";
-import "./listOfPlayLists.css";
+import ListofPlayLists from "./listOfPlayLists.css";
 import "../CategoriesList";
+import Navbar from "../Navbar";
 import { useState, useEffect } from "react";
 
 let URL = window.location;
@@ -29,7 +30,8 @@ function ListOfPlayLists(props) {
   };
 
   return (
-    <div>
+    <div className="contentWrapper">
+      <Navbar />
       <div className="card-group cardPosition">
         {playList.map((list, id) => {
           return (

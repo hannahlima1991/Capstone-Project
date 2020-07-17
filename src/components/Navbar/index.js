@@ -30,7 +30,7 @@ function Navbar() {
               </li>
             </Link>
             {/* <Link to="/categories/list">
-              <li class="nav-item">
+              <li class="nav-item active">
                 <p class="nav-link" href="#">
                   Choose a Playlist
                 </p>

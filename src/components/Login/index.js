@@ -60,12 +60,12 @@ const Login = (props) => {
           >
             Login
           </button>
-          <div className="guestLogin">
-            <a href="/access">Login As Guest</a>
-          </div>
-          <div className="firstTimeUser">
-            <a href="/register">First Time? Make an Account.</a>
-          </div>
+        </div>
+        <div className="guestLogin">
+          <a href="/access">Login As Guest</a>
+        </div>
+        <div className="firstTimeUser">
+          <a href="/register">First Time? Make an Account.</a>
         </div>
       </form>
     </div>

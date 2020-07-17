@@ -1,7 +1,31 @@
+/*ordered Top to bottum, from large to small */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.App {
+  background-color: rgb(238, 238, 238);
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+.jumbotron{
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%; 
+}
+
 .header {
     background-color: #14213d;
     height: 100px;
-    width: 100%;    
+    width: 100%;
+    margin-bottom: 50px;    
 }
 
 .title {
@@ -10,25 +34,35 @@
     font-size: 4.5rem;
 }
 
-.App {
-    background-color: #eee;
-    background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
-}
-.resp-container {
-    position: relative;
-    overflow: hidden;
-    padding-top: 50%;
-    background-size: cover;
+.small-header {
+  color: #fff;
+  font-size: 5rem;
+  text-align: center;
 }
 
-.resp-iframe {
-    position: absolute;
-    top: 25%;
-    left: 25%;
-    width: 50%;
-    height: 50%;
-    border: 0;
+.resp-container {
+  width: 100%;
+  height: auto;
 }
+
+
+
+
+
+
+/* Music Player */
+.iframe {
+  display: block;
+  width:50%;
+  height:500px;
+  padding-bottom: 100px ;
+  border: none;
+}
+
+
+
+
+/* Animation */
 
 .animate-reveal {
     

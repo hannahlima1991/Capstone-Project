@@ -29,13 +29,13 @@ function Navbar() {
                 </p>
               </li>
             </Link>
-            {/* <Link to="/categories/list">
-              <li class="nav-item">
+            <Link to="/categories/list">
+              <li class="nav-item active">
                 <p class="nav-link" href="#">
                   Choose a Playlist
                 </p>
               </li>
-            </Link> */}
+            </Link>
             {/* <Link to="/songs/list">
               <li class="nav-item">
                 <p class="nav-link" href="#">

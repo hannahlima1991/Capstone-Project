@@ -31,7 +31,7 @@ function MusicPlayer() {
         </div>
         <div className="resp-container animate-reveal animate-second ">
           <iframe
-            className="resp-iframe iframe mx-auto"
+            className="resp-iframe iframe mx-auto full-width"
             src={selectedSong}
             frameborder="20"
             allowtransparency="true"

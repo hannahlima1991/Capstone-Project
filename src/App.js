@@ -31,6 +31,7 @@ function App() {
           <Route path="/musicplayer/:id" component={MusicPlayer} />
           <Route path="/profile" component={Profile} />
           <Route path="/register" component={Register} />
+          <Route path="/pplaylist" component={PersonalPlayList} />
         </Switch>
       </div>
     </Router>

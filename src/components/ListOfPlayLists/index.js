@@ -38,19 +38,19 @@ function ListOfPlayLists(props) {
         {playList.map((list, id) => {
           return (
             <div
-              class="col-lg-2 margin"
+              
               onClick={() => {
                 props.history.push(`/songs/list/${list.id}`);
               }}
             >
-              <div class="card playlistName">
+              <div class="card playlistName col-lg-2 margin">
                 <img
                   class="card-img-top"
                   src={list.images[0].url}
                   alt="Card image cap"
                 />
                 <div class="card-body categoryName">
-                  <h5 class="card-title">{list.name}</h5>
+                  <h5 class="card-title ">{list.name}</h5>
                 </div>
               </div>
             </div>

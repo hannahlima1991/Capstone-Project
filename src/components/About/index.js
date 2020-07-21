@@ -13,7 +13,7 @@ function About() {
       <div className="aboutWrapper container">
         <div className="aboutUs">
           <h1>About Us</h1>
-          <h3>Spotibae was made by music lovers for music lovers.</h3>
+          <h3>Spotibae was made by music lovers for music lovers!</h3>
         </div>
         <div className="row">
           <div className="col-lg-4">

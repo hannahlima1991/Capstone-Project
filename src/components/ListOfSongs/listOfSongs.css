@@ -1,11 +1,48 @@
 .cardSize {
-  margin-left: 15px;
+  margin: 1px 15px;
   width: 98%;
-  margin-top: 10px;
+  color: #566467;
+  /* z-index: -1; */
+}
+.cardSize:hover {
+  background-color: #13315c;
+  opacity: 0.6;
+  color: white;
+}
+.cardSize:hover button {
+  background-color: white;
+  border: solid white 1px;
+  color: #ff2828;
 }
 .card-body {
-  margin-top: 10px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .songList h1 {
   background-color: white;
+}
+.playButton {
+  float: right;
+  margin-right: 10px;
+  border-radius: 20px;
+  border: solid #566467 1px;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #566467;
+  background-color: #ffffff;
+}
+.navMargin {
+  margin-bottom: 35px;
+  width: 100%;
+}
+.songUi {
+  cursor: pointer;
+}
+@media only screen and (max-width: 770px) {
+  .cardSize {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .playButton {
+    display: none;
+  }
 }

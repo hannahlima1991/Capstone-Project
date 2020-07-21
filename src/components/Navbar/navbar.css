@@ -1,3 +1,15 @@
 .navHeight {
   height: 55px;
+  width: 100%;
+}
+#navbarSupportedContent {
+  z-index: 9;
+  /* box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 2px 3px 0px rgba(0, 0, 0, 0.12); */
+}
+@media only screen and (max-width: 770px) {
+  .navbar-nav {
+    background-color: white;
+    box-shadow: 0 8px 6px -6px gray;
+  }
 }

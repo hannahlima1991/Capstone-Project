@@ -60,7 +60,7 @@ function CategoriesList(props) {
   return (
     <div className="fullContent">
       <Navbar />
-      <div className="card-group cardStyle">
+      <div className="row card-group cardStyle">
         {category.map((cat, id) => {
           return (
             <div

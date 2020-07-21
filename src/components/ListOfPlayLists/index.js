@@ -30,32 +30,32 @@ function ListOfPlayLists(props) {
   };
 
   return (
-    <div className="contentWrapper">
-      <div className="navContainer">
-        <Navbar />
-      </div>
-      <div className="row card-group cardPosition">
-        {playList.map((list, id) => {
-          return (
-            <div
-              class="col-lg-2 margin"
-              onClick={() => {
-                props.history.push(`/songs/list/${list.id}`);
-              }}
-            >
-              <div class="card playlistName">
-                <img
-                  class="card-img-top"
-                  src={list.images[0].url}
-                  alt="Card image cap"
-                />
-                <div class="card-body categoryName">
-                  <h5 class="card-title">{list.name}</h5>
+    <div className="navContainer ">
+      <Navbar />
+      <div className="contentWrapper container">
+        <div className="row card-group cardPosition">
+          {playList.map((list, id) => {
+            return (
+              <div
+                class="col-lg-3 margin"
+                onClick={() => {
+                  props.history.push(`/songs/list/${list.id}`);
+                }}
+              >
+                <div class="card playlistName">
+                  <img
+                    class="card-img-top"
+                    src={list.images[0].url}
+                    alt="Card image cap"
+                  />
+                  <div class="card-body categoryName">
+                    <h5 class="card-title">{list.name}</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </div>
   );

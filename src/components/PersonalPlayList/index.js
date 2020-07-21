@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./personalPlayList.css";
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 
 function CategoriesList() {
   //https://jsonplaceholder.typicode.com/users
@@ -8,6 +9,7 @@ function CategoriesList() {
   const [ownPlaylist, setOwnPlaylist] = useState([])
   const [selectedPlaylistSong, setSelectedPlaylistSong] = useState([])
   const [selectedSong, setSelectedSong] = useState("")
+  const [showMusicPlayer, setShowMusicPlayer] = useState(false)
 
   useEffect(() => {
     getPlaylists()
@@ -38,7 +40,7 @@ function CategoriesList() {
     })
       .then((response) => response.json())
       .then((response) => setOwnPlaylist(response.items))
-    //.then((response) => console.log(response))
+    //.then((response) => console.log(response.items))
     //.then(() => console.log(selectedCategory + access_token))
 
   }
@@ -65,32 +67,42 @@ function CategoriesList() {
   function selectSong(e) {
     setSelectedSong("")
     let pickedSong = (e.target.value);
-    console.log(`pickedsong is ${pickedSong}`);
     setSelectedSong(`https://open.spotify.com/embed/track/${pickedSong}`);
-    console.log(`Selected Song is: ${selectedSong}`)
-    console.log(`from select song function ${pickedSong}`)
-    //https://open.spotify.com/embed/track/ + ${pickedSong
+    setShowMusicPlayer(true)
   }
 
 
   return (<div>
+    <div className="header">
+          <h1 className="title animate-reveal animate-first display-4 d-none d-lg-block" >
+            <LibraryMusicIcon style={{fontSize: 80}}/>
+            Your Playlists
+          </h1>
+          <h1 className = "small-header d-block d-lg-none"> Spotibea </h1>
+        </div>
+    <div className="card-deck d-flex justify-content-center">
     {ownPlaylist.map((item) => {
-      return (<button
+      return (<div className="card playlistName">
+      <img class="card-img-top" src={item.images[0].url} alt="Card image cap"></img>
+      <div class="card-body">
+      <h5 class="card-title">{item.name}</h5>
+      <button
         type="button"
         class="btn btn-primary"
         onClick={goToPlaylist}
         value={item.href}
         name={item.name}>
-        {item.name}</button>)
+        go to {item.name} playlist
+        </button>
+    </div>
+  </div>)
     })}
-    {/* <button type="button" class="btn btn-primary" onClick={handleClick} name="Hardstyle">Hardstyle</button>
-    <button type="button" class="btn btn-secondary" onClick={handleClick} name="House">House</button>
-    <button type="button" class="btn btn-success" onClick={handleClick} name="Trance">Trance</button> */}
+    
     <div>
-      <div className="card-group"> {selectedPlaylistSong != [] ? selectedPlaylistSong.map((cat) => {
+      <div className="card-deck d-flex justify-content-center"> {selectedPlaylistSong != [] ? selectedPlaylistSong.map((cat) => {
         return (
           <div>
-            <div class="card" style={{ width: 18 + "rem", height: 36 + "rem" }}>
+            <div className="card playlistName">
               <img
                 class="card-img-top"
                 src={cat.track.album.images[0].url}
@@ -102,7 +114,7 @@ function CategoriesList() {
                   className="btn btn-primary"
                   value={cat.track.id}
                   onClick={selectSong}>
-                  Play
+                  Play ▷
                 </button>
               </div>
             </div>
@@ -110,8 +122,8 @@ function CategoriesList() {
         );
       }) : null}</div>
       
-      <div className="small-music-player">
-      {selectedSong !== ("") ? <div>
+      <div >
+      {selectedSong !== ("") ? <div className="small-music-player" style={{height: 100 + "px", width: 100 + "%"}}>
         <iframe 
         src={selectedSong} 
         width="300" 
@@ -123,6 +135,7 @@ function CategoriesList() {
     </div>
 
 
+  </div>
   </div>
 
   );

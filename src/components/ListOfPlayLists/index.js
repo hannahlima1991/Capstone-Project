@@ -30,6 +30,7 @@ function ListOfPlayLists(props) {
   };
 
   return (
+
     <div className="navContainer ">
       <Navbar />
       <div className="contentWrapper container">

@@ -29,6 +29,13 @@ function Navbar() {
                 </p>
               </li>
             </Link>
+            <Link to="/about">
+              <li class="nav-item active">
+                <p class="nav-link" href="#">
+                  About Us <span class="sr-only">(current)</span>
+                </p>
+              </li>
+            </Link>
           </ul>
         </div>
       </nav>

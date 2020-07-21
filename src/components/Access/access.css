@@ -8,6 +8,7 @@
 }
 .accessContent {
   margin-top: 33px;
+  cursor: pointer;
 }
 @media only screen and (max-width: 770px) {
   .accessWrap {

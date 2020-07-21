@@ -32,33 +32,33 @@ function ListOfSongs(props) {
   };
   return (
     <div className="songsList">
-      <Navbar />
+      <div className="navMargin">
+        <Navbar />
+      </div>
       {songList.map((song) => {
         const { track } = song;
         const { name = "" } = track;
         const { duration_ms } = track;
         return (
-          <div className="SongUI">
-            <div className="card cardSize">
-              <div className="card-body lg-6 ">
+          <div className="songUi">
+            <div
+              className="card cardSize"
+              onClick={() => {
+                props.history.push(`/musicplayer/${song.track.id}`);
+                console.log(song.track.id);
+              }}
+            >
+              <div className="card-body lg-12">
                 {name}
-                <button>push</button>
-                return (
-                <div className="SongUI">
-                  <div className="card">
-                    <div className="card-body lg-12">
-                      {name}
-                      <button
-                        onClick={() => {
-                          props.history.push(`/musicplayer/${song.track.id}`);
-                          console.log(song.track.id);
-                        }}
-                      >
-                        push
-                      </button>
-                    </div>
-                  </div>
-                </div>
+                <button
+                  className="playButton"
+                  onClick={() => {
+                    props.history.push(`/musicplayer/${song.track.id}`);
+                    console.log(song.track.id);
+                  }}
+                >
+                  Play
+                </button>
               </div>
             </div>
           </div>

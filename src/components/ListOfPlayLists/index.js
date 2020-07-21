@@ -31,17 +31,19 @@ function ListOfPlayLists(props) {
 
   return (
     <div className="contentWrapper">
-      <Navbar />
-      <div className="card-group cardPosition">
+      <div className="navContainer">
+        <Navbar />
+      </div>
+      <div className="row card-group cardPosition">
         {playList.map((list, id) => {
           return (
             <div
-              class="col-lg-3 margin"
+              class="col-lg-2 margin"
               onClick={() => {
                 props.history.push(`/songs/list/${list.id}`);
               }}
             >
-              <div class="card cardMargin">
+              <div class="card playlistName">
                 <img
                   class="card-img-top"
                   src={list.images[0].url}

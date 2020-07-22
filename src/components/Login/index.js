@@ -1,7 +1,7 @@
 import * as React from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 const Login = (props) => {
   const { register, errors, handleSubmit, clearErrors } = useForm();
@@ -28,6 +28,13 @@ const Login = (props) => {
   };
   return (
     <div className="login">
+      <div className="hidden-md-down welcomeMessage">
+        <h1>Welcome to Spotibae</h1>
+        <img src={logo} />
+      </div>
+      <div className="hidden-md-up secondWelcomeMessage ">
+        <h2>Welcome to Spotibae</h2>
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="loginForm">
         <div className="loginTextInput">
           <input

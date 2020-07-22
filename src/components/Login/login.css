@@ -5,9 +5,31 @@
   width: 100%;
   height: 100vh;
 }
+.welcomeMessage {
+  color: #566467;
+  font-family: sans-serif;
+  position: absolute;
+  top: 7%;
+  right: 68%;
+}
+.welcomeMessage img {
+  width: 15%;
+  position: absolute;
+  top: -31%;
+  left: 102%;
+}
+.secondWelcomeMessage {
+  font-family: sans-serif;
+  color: #566467;
+  margin-top: 122px;
+}
+.secondWelcomeMessage img {
+  width: 30px;
+}
 .loginForm {
   border-radius: 18px;
-  margin-top: 17%;
+  position: absolute;
+  top: 27%;
   border: 3px solid #f2f2f2;
   padding: 20px;
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
@@ -48,4 +70,14 @@
 }
 .firstTimeUser {
   text-align: center;
+}
+@media only screen and (max-width: 1187px) {
+  .welcomeMessage {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1185px) {
+  .secondWelcomeMessage {
+    display: none;
+  }
 }

@@ -4,6 +4,8 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 100vh;
+  color: #566467;
+  font-family: sans-serif;
 }
 .loginForm {
   border-radius: 18px;

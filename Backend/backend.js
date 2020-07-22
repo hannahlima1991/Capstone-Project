@@ -6,6 +6,7 @@ const loginRoute = require("./routes/login");
 const dashboardRoute = require("./routes/dashboard");
 const bcrypt = require("bcryptjs");
 const authenticate = require("./middleware/authenticate");
+const PORT = process.env.PORT || 8000
 
 app.use(cors());
 app.use(express.json());
@@ -76,6 +77,6 @@ app.post("/registers", async (req, res) => {
 //     res.json({ success: true });
 //   });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log("Server running strong");
 });
